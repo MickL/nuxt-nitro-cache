@@ -1,6 +1,6 @@
 import {addSeconds, format} from 'date-fns';
 
-const maxAge = 2; // seconds
+const maxAge = 5; // seconds
 
 export default cachedEventHandler(
     async (event): Promise<any> => {
@@ -12,6 +12,7 @@ export default cachedEventHandler(
             timeFormatted: format(now, 'dd.MM.yyyy - HH:mm:ss'),
             expiresAt: expiresAt.getTime(),
             expiresAtFormatted: format(expiresAt, 'dd.MM.yyyy - HH:mm:ss'),
+            maxAge: maxAge + ' seconds',
         }
     },
     {
